@@ -14,6 +14,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lHf-H2-nGh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JGt-O7-1RU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="themeOrange"/>
                     </tabBar>
@@ -34,26 +35,64 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-2G-DB2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" name="themeBlue"/>
+                                <color key="sectionIndexBackgroundColor" name="themeBlue"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="themeBlue"/>
+                        <constraints>
+                            <constraint firstItem="d8G-2G-DB2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HSR-V3-SSk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="d8G-2G-DB2" secondAttribute="bottom" id="NUk-os-ks1"/>
+                            <constraint firstItem="d8G-2G-DB2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ape-HY-5pY"/>
+                            <constraint firstItem="d8G-2G-DB2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dTq-sS-GtI"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="note-1" selectedImage="note-3" id="7xT-hD-mZ5"/>
+                    <connections>
+                        <outlet property="tableView" destination="d8G-2G-DB2" id="pVt-X1-kxZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488" y="-450"/>
+            <point key="canvasLocation" x="486.95652173913049" y="-450"/>
         </scene>
         <!--Gallery-->
         <scene sceneID="uR4-2x-x2j">
             <objects>
-                <viewController title="Gallery" id="1Zz-a8-j79" sceneMemberID="viewController">
+                <viewController title="Gallery" id="1Zz-a8-j79" customClass="GalleryViewController" customModule="homework_3_sametkoyuncu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b4Y-U3-bin">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uaQ-wJ-fvS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" name="themePink"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xt9-ht-UVN">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="O8V-5L-a1K"/>
                         <color key="backgroundColor" name="themePink"/>
+                        <constraints>
+                            <constraint firstItem="uaQ-wJ-fvS" firstAttribute="top" secondItem="O8V-5L-a1K" secondAttribute="top" id="0Xv-iV-Kpq"/>
+                            <constraint firstItem="O8V-5L-a1K" firstAttribute="bottom" secondItem="uaQ-wJ-fvS" secondAttribute="bottom" id="Con-Js-BIP"/>
+                            <constraint firstItem="uaQ-wJ-fvS" firstAttribute="leading" secondItem="O8V-5L-a1K" secondAttribute="leading" id="Ugu-XU-U7C"/>
+                            <constraint firstItem="O8V-5L-a1K" firstAttribute="trailing" secondItem="uaQ-wJ-fvS" secondAttribute="trailing" id="xYM-H4-NaW"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="gallery-1" selectedImage="gallery-3" id="3a6-WR-Iim"/>
+                    <connections>
+                        <outlet property="collectionView" destination="uaQ-wJ-fvS" id="G3q-zj-HyH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZN-Be-hoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,16 +123,16 @@
         <image name="note-1" width="25" height="25"/>
         <image name="note-3" width="25" height="25"/>
         <namedColor name="themeBlue">
-            <color red="0.71764705882352942" green="0.98431372549019602" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.71799999475479126" green="0.98400002717971802" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeOrange">
             <color red="1" green="0.8784313725490196" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themePink">
-            <color red="1" green="0.63137254901960782" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.63099998235702515" blue="0.67500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="themeYellow">
-            <color red="1" green="0.96470588235294119" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.9649999737739563" blue="0.74500000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
