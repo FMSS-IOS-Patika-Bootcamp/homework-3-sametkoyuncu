@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30065F97F8EEB384D8BB86F4 /* libPods-homework-3-sametkoyuncu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3DD7535052B5D6839B9BEB /* libPods-homework-3-sametkoyuncu.a */; };
 		F14A27AC28D86550001DA9A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A27AB28D86550001DA9A2 /* AppDelegate.swift */; };
 		F14A27AE28D86550001DA9A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A27AD28D86550001DA9A2 /* SceneDelegate.swift */; };
 		F14A27B028D86550001DA9A2 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A27AF28D86550001DA9A2 /* PostListViewController.swift */; };
 		F14A27B328D86550001DA9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14A27B128D86550001DA9A2 /* Main.storyboard */; };
 		F14A27B528D86551001DA9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F14A27B428D86551001DA9A2 /* Assets.xcassets */; };
 		F14A27B828D86551001DA9A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F14A27B628D86551001DA9A2 /* LaunchScreen.storyboard */; };
+		F18F202628D9AA650003EC87 /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */; };
+		F18F202728D9AA650003EC87 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */; };
 		F1A2FDFE28D8ECBB009A9EB6 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */; };
 		F1A2FDFF28D8ECBB009A9EB6 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */; };
 		F1A2FE0628D8FDB6009A9EB6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		594B8BED2886C34D02EFB490 /* Pods-homework-3-sametkoyuncu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homework-3-sametkoyuncu.debug.xcconfig"; path = "Target Support Files/Pods-homework-3-sametkoyuncu/Pods-homework-3-sametkoyuncu.debug.xcconfig"; sourceTree = "<group>"; };
+		651A64FCDE7C1CE594538D11 /* Pods-homework-3-sametkoyuncu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homework-3-sametkoyuncu.release.xcconfig"; path = "Target Support Files/Pods-homework-3-sametkoyuncu/Pods-homework-3-sametkoyuncu.release.xcconfig"; sourceTree = "<group>"; };
+		AD3DD7535052B5D6839B9BEB /* libPods-homework-3-sametkoyuncu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-homework-3-sametkoyuncu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14A27A828D86550001DA9A2 /* homework-3-sametkoyuncu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homework-3-sametkoyuncu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14A27AB28D86550001DA9A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14A27AD28D86550001DA9A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +43,8 @@
 		F14A27B428D86551001DA9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F14A27B728D86551001DA9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F14A27B928D86551001DA9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -57,17 +65,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30065F97F8EEB384D8BB86F4 /* libPods-homework-3-sametkoyuncu.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC9F92F7EFC592DECB2865FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD3DD7535052B5D6839B9BEB /* libPods-homework-3-sametkoyuncu.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8FE72B3794AF19A7C8B2380 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				594B8BED2886C34D02EFB490 /* Pods-homework-3-sametkoyuncu.debug.xcconfig */,
+				651A64FCDE7C1CE594538D11 /* Pods-homework-3-sametkoyuncu.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F14A279F28D86550001DA9A2 = {
 			isa = PBXGroup;
 			children = (
 				F14A27AA28D86550001DA9A2 /* homework-3-sametkoyuncu */,
 				F14A27A928D86550001DA9A2 /* Products */,
+				D8FE72B3794AF19A7C8B2380 /* Pods */,
+				AC9F92F7EFC592DECB2865FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +143,8 @@
 				F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */,
 				F1A2FE0D28D904FE009A9EB6 /* GalleryCollectionViewCell.swift */,
 				F1A2FE0E28D904FE009A9EB6 /* GalleryCollectionViewCell.xib */,
+				F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */,
+				F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +223,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F14A27BC28D86551001DA9A2 /* Build configuration list for PBXNativeTarget "homework-3-sametkoyuncu" */;
 			buildPhases = (
+				DE3307B8B174E4C5704FA992 /* [CP] Check Pods Manifest.lock */,
 				F14A27A428D86550001DA9A2 /* Sources */,
 				F14A27A528D86550001DA9A2 /* Frameworks */,
 				F14A27A628D86550001DA9A2 /* Resources */,
@@ -248,12 +279,38 @@
 				F1A2FE1028D904FE009A9EB6 /* GalleryCollectionViewCell.xib in Resources */,
 				F14A27B528D86551001DA9A2 /* Assets.xcassets in Resources */,
 				F14A27B328D86550001DA9A2 /* Main.storyboard in Resources */,
+				F18F202728D9AA650003EC87 /* HeaderCollectionViewCell.xib in Resources */,
 				F1A2FDFF28D8ECBB009A9EB6 /* HeaderTableViewCell.xib in Resources */,
 				F1F0AD9228D8939C004731AB /* PostListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DE3307B8B174E4C5704FA992 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-homework-3-sametkoyuncu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F14A27A428D86550001DA9A2 /* Sources */ = {
@@ -263,6 +320,7 @@
 				F1A2FDFE28D8ECBB009A9EB6 /* HeaderTableViewCell.swift in Sources */,
 				F1A2FE0828D8FF45009A9EB6 /* GalleryViewModel.swift in Sources */,
 				F14A27B028D86550001DA9A2 /* PostListViewController.swift in Sources */,
+				F18F202628D9AA650003EC87 /* HeaderCollectionViewCell.swift in Sources */,
 				F1F0AD8A28D89270004731AB /* PostListModel.swift in Sources */,
 				F1F0AD9128D8939C004731AB /* PostListTableViewCell.swift in Sources */,
 				F1F0AD8E28D89317004731AB /* PostListViewModel.swift in Sources */,
@@ -414,6 +472,7 @@
 		};
 		F14A27BD28D86551001DA9A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 594B8BED2886C34D02EFB490 /* Pods-homework-3-sametkoyuncu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -422,6 +481,7 @@
 				DEVELOPMENT_TEAM = A9S7ZDQSZC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "homework-3-sametkoyuncu/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Penguin App";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -442,6 +502,7 @@
 		};
 		F14A27BE28D86551001DA9A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 651A64FCDE7C1CE594538D11 /* Pods-homework-3-sametkoyuncu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -450,6 +511,7 @@
 				DEVELOPMENT_TEAM = A9S7ZDQSZC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "homework-3-sametkoyuncu/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Penguin App";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
