@@ -1,0 +1,6 @@
+module Pods_homework_3_sametkoyuncu {
+  umbrella header "Pods-homework-3-sametkoyuncu-umbrella.h"
+
+  export *
+  module * { export * }
+}
