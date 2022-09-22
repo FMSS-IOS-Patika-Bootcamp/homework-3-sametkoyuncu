@@ -10,12 +10,13 @@ import CoreData
 
 class TodoListViewController: UIViewController {
     private var todoList: [TodoItem] = []
-    
     private let viewModel = TodoListViewModel()
     
+    // cell identifiers
     private let todoListCellReuseIdentifier = "TodoListTableViewCell"
-    private let headerCellReuseIdentifier = "TodoHeaderTableViewCell"
+    private let headerCellReuseIdentifier = "HeaderTodoListTableViewCell"
     
+    // outlets
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,14 +24,9 @@ class TodoListViewController: UIViewController {
         registerCells()
         setupUI()
         
-        makeNewItemButton()
-        
+        // view model setup
         viewModel.viewDelegate  = self
-        viewModel.didViewLoad()
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         getData()
     }
     
@@ -38,15 +34,17 @@ class TodoListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        
+        makeNewItemButton()
     }
     
     
     func registerCells() {
-        
         tableView.register(.init(nibName: "TodoListTableViewCell", bundle: nil), forCellReuseIdentifier: todoListCellReuseIdentifier)
-        //tableView.register(.init(nibName: "TodoHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: headerCellReuseIdentifier)
+        tableView.register(.init(nibName: "HeaderTodoListTableViewCell", bundle: nil), forCellReuseIdentifier: headerCellReuseIdentifier)
     }
     
+    // create add button
     func makeNewItemButton() {
         let button = UIButton()
         button.setImage(UIImage(named: "add"), for: .normal)
@@ -60,6 +58,7 @@ class TodoListViewController: UIViewController {
         view.addSubview(button)
     }
     
+    // add button action
     @objc func addItemButtonPressed() {
         let destnationVC = storyboard?.instantiateViewController(withIdentifier: "AddNewItemScreen") as! AddNewItemViewController
         
@@ -68,45 +67,11 @@ class TodoListViewController: UIViewController {
         present(destnationVC, animated: true)
     }
     
+    // get data from core data
     private func getData() {
-        let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
-        let sortByDate = NSSortDescriptor(key: #keyPath(Item.date), ascending: false)
-        
-        fetchRequest.sortDescriptors = [sortByDate]
-        
-        do {
-            let context = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
-            let results = try context.fetch(fetchRequest)
-            todoList = results.map {
-                TodoItem(id: $0.id! ,title: $0.title!, content: $0.body!, isDone: $0.isDone)
-            }
-            tableView.reloadData()
-        } catch {
-            print(error.localizedDescription)
-        }
+        viewModel.getData()
     }
 
-}
-
-// MARK: - AddTodoItem Methods
-extension TodoListViewController: AddTodoItemProtocol {
-    func didAddedTodoItem(_ isAdded: Bool) {
-        
-        if isAdded {
-            getData()
-        }
-        
-    }
-}
-
-// MARK: - TodoDetails Methods
-extension TodoListViewController: TodoDetailsProtocol {
-    func didUpdatedTodo(_ isUpdated: Bool) {
-        if isUpdated {
-            getData()
-        }
-    }
-    
 }
 
 // MARK: - ViewModel Methods
@@ -119,6 +84,24 @@ extension TodoListViewController: TodoListViewModelProtocol {
     }
 }
 
+// MARK: - AddTodoItem Methods
+extension TodoListViewController: AddTodoItemProtocol {
+    func didAddedTodoItem(_ isAdded: Bool) {
+        if isAdded {
+            getData()
+        }
+    }
+}
+
+// MARK: - TodoDetails Methods
+extension TodoListViewController: TodoDetailsProtocol {
+    func didUpdatedTodo(_ isUpdated: Bool) {
+        if isUpdated {
+            getData()
+        }
+    }
+}
+
 // MARK: - TableView Delegate Methods
 extension TodoListViewController: UITableViewDelegate {
     
@@ -127,7 +110,7 @@ extension TodoListViewController: UITableViewDelegate {
         
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "TodoDetailsScreen") as! TodoDetailsViewController
         destinationVC.delegate = self
-        destinationVC.todoItem = todoList[indexPath.row]
+        destinationVC.todoItem = todoList[indexPath.row - 1]
         
         present(destinationVC, animated: true)
     }
@@ -136,22 +119,23 @@ extension TodoListViewController: UITableViewDelegate {
 // MARK: - TableView DataSource Methods
 extension TodoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoList.count
+        // todolist.count + header cell
+        return todoList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        /*
+        // custom header cell
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: headerCellReuseIdentifier) as! TodoHeaderTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: headerCellReuseIdentifier) as! HeaderTodoListTableViewCell
             
             return cell
-        }*/
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: todoListCellReuseIdentifier) as! TodoListTableViewCell
         
-        cell.titleLabel.text = todoList[indexPath.row].title
+        cell.titleLabel.text = todoList[indexPath.row - 1].title
         
-        cell.checkMarkImage.image = UIImage(named: todoList[indexPath.row].isDone ? "checked" : "unchecked")
+        cell.checkMarkImage.image = UIImage(named: todoList[indexPath.row - 1].isDone ? "checked-1" : "unchecked-1")
         
         return cell
     }

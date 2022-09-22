@@ -34,7 +34,6 @@ class CoreDataStack {
         
         do {
             try managedContext.save()
-            print("kaydedildi ")
         } catch let error as NSError {
             print(error)
         }

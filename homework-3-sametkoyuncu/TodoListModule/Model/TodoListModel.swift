@@ -28,7 +28,6 @@ class TodoListModel {
             let results = try context.fetch(fetchRequest)
             todoList = results
             delegate?.didDataFetchProcessFinish(true)
-            //tableView.reloadData()
         } catch {
             delegate?.didDataFetchProcessFinish(false)
             print(error.localizedDescription)

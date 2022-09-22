@@ -21,6 +21,8 @@
 		F18F202628D9AA650003EC87 /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */; };
 		F18F202728D9AA650003EC87 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */; };
 		F1A0445E28DC5931000E2856 /* TodoDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0445D28DC5931000E2856 /* TodoDetailsModel.swift */; };
+		F1A0446228DC682C000E2856 /* HeaderTodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0446028DC682C000E2856 /* HeaderTodoListTableViewCell.swift */; };
+		F1A0446328DC682C000E2856 /* HeaderTodoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A0446128DC682C000E2856 /* HeaderTodoListTableViewCell.xib */; };
 		F1A2FDFE28D8ECBB009A9EB6 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */; };
 		F1A2FDFF28D8ECBB009A9EB6 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */; };
 		F1A2FE0628D8FDB6009A9EB6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */; };
@@ -29,6 +31,8 @@
 		F1A2FE0C28D8FF68009A9EB6 /* GalleryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FE0B28D8FF68009A9EB6 /* GalleryEntity.swift */; };
 		F1A2FE0F28D904FE009A9EB6 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FE0D28D904FE009A9EB6 /* GalleryCollectionViewCell.swift */; };
 		F1A2FE1028D904FE009A9EB6 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A2FE0E28D904FE009A9EB6 /* GalleryCollectionViewCell.xib */; };
+		F1B7BB3F28DC83FB008DC39D /* AddNewItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7BB3E28DC83FB008DC39D /* AddNewItemModel.swift */; };
+		F1B7BB4128DCBAB4008DC39D /* TodoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B7BB4028DCBAB4008DC39D /* TodoDetailsViewModel.swift */; };
 		F1C237CA28D9D9D2008F8E68 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C237C928D9D9D2008F8E68 /* TodoListViewController.swift */; };
 		F1C237CD28D9DA4A008F8E68 /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C237CB28D9DA4A008F8E68 /* TodoListTableViewCell.swift */; };
 		F1C237CE28D9DA4A008F8E68 /* TodoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C237CC28D9DA4A008F8E68 /* TodoListTableViewCell.xib */; };
@@ -62,6 +66,8 @@
 		F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		F1A0445D28DC5931000E2856 /* TodoDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsModel.swift; sourceTree = "<group>"; };
+		F1A0446028DC682C000E2856 /* HeaderTodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTodoListTableViewCell.swift; sourceTree = "<group>"; };
+		F1A0446128DC682C000E2856 /* HeaderTodoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTodoListTableViewCell.xib; sourceTree = "<group>"; };
 		F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,8 @@
 		F1A2FE0B28D8FF68009A9EB6 /* GalleryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryEntity.swift; sourceTree = "<group>"; };
 		F1A2FE0D28D904FE009A9EB6 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		F1A2FE0E28D904FE009A9EB6 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		F1B7BB3E28DC83FB008DC39D /* AddNewItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemModel.swift; sourceTree = "<group>"; };
+		F1B7BB4028DCBAB4008DC39D /* TodoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailsViewModel.swift; sourceTree = "<group>"; };
 		F1C237C928D9D9D2008F8E68 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		F1C237CB28D9DA4A008F8E68 /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
 		F1C237CC28D9DA4A008F8E68 /* TodoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoListTableViewCell.xib; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 		F1A0445B28DC4B36000E2856 /* AddTodoItemModule */ = {
 			isa = PBXGroup;
 			children = (
+				F1B7BB3D28DC83E9008DC39D /* Model */,
 				F1BABC0828DC35A0004FDE20 /* View */,
 				F1A0445928DC4A4F000E2856 /* VM */,
 			);
@@ -178,6 +187,7 @@
 			children = (
 				F1A0445F28DC5937000E2856 /* Model */,
 				F1BABC0D28DC363C004FDE20 /* View */,
+				F1B7BB4228DCBB3E008DC39D /* VM */,
 			);
 			path = TodoDetailsModule;
 			sourceTree = "<group>";
@@ -229,6 +239,22 @@
 			path = VM;
 			sourceTree = "<group>";
 		};
+		F1B7BB3D28DC83E9008DC39D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1B7BB3E28DC83FB008DC39D /* AddNewItemModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1B7BB4228DCBB3E008DC39D /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				F1B7BB4028DCBAB4008DC39D /* TodoDetailsViewModel.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
 		F1BABC0828DC35A0004FDE20 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +295,8 @@
 				F1C237C928D9D9D2008F8E68 /* TodoListViewController.swift */,
 				F1C237CB28D9DA4A008F8E68 /* TodoListTableViewCell.swift */,
 				F1C237CC28D9DA4A008F8E68 /* TodoListTableViewCell.xib */,
+				F1A0446028DC682C000E2856 /* HeaderTodoListTableViewCell.swift */,
+				F1A0446128DC682C000E2856 /* HeaderTodoListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,6 +430,7 @@
 				F14A27B828D86551001DA9A2 /* LaunchScreen.storyboard in Resources */,
 				F1A2FE1028D904FE009A9EB6 /* GalleryCollectionViewCell.xib in Resources */,
 				F14A27B528D86551001DA9A2 /* Assets.xcassets in Resources */,
+				F1A0446328DC682C000E2856 /* HeaderTodoListTableViewCell.xib in Resources */,
 				F14A27B328D86550001DA9A2 /* Main.storyboard in Resources */,
 				F18F202728D9AA650003EC87 /* HeaderCollectionViewCell.xib in Resources */,
 				F1A2FDFF28D8ECBB009A9EB6 /* HeaderTableViewCell.xib in Resources */,
@@ -444,6 +473,7 @@
 			files = (
 				F1F1B83928DB2A9500A28B20 /* TodoListModel.swift in Sources */,
 				F160C73C28DB78E700E3BEEF /* TodoListViewModel.swift in Sources */,
+				F1A0446228DC682C000E2856 /* HeaderTodoListTableViewCell.swift in Sources */,
 				F1A2FDFE28D8ECBB009A9EB6 /* HeaderTableViewCell.swift in Sources */,
 				F1A2FE0828D8FF45009A9EB6 /* GalleryViewModel.swift in Sources */,
 				F14A27B028D86550001DA9A2 /* PostListViewController.swift in Sources */,
@@ -455,12 +485,14 @@
 				F1F0AD8A28D89270004731AB /* PostListModel.swift in Sources */,
 				F1F0AD9128D8939C004731AB /* PostListTableViewCell.swift in Sources */,
 				F1690DAF28DA3009003B0D5A /* AddNewItemViewController.swift in Sources */,
+				F1B7BB3F28DC83FB008DC39D /* AddNewItemModel.swift in Sources */,
 				F1F06BCC28D9CF9900439D49 /* CoreDataStack.swift in Sources */,
 				F1F0AD8E28D89317004731AB /* PostListViewModel.swift in Sources */,
 				F1F0AD8C28D8928B004731AB /* PostListEntity.swift in Sources */,
 				F1A2FE0628D8FDB6009A9EB6 /* GalleryViewController.swift in Sources */,
 				F1A2FE0A28D8FF5B009A9EB6 /* GalleryModel.swift in Sources */,
 				F14A27AC28D86550001DA9A2 /* AppDelegate.swift in Sources */,
+				F1B7BB4128DCBAB4008DC39D /* TodoDetailsViewModel.swift in Sources */,
 				F1F1B83728DB2A6000A28B20 /* AddNewItemViewModel.swift in Sources */,
 				F1C237CA28D9D9D2008F8E68 /* TodoListViewController.swift in Sources */,
 				F14A27AE28D86550001DA9A2 /* SceneDelegate.swift in Sources */,

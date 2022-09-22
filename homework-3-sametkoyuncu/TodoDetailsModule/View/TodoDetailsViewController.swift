@@ -14,10 +14,12 @@ protocol TodoDetailsProtocol {
 
 class TodoDetailsViewController: UIViewController {
     var todoItem: TodoItem?
+    
     var delegate: TodoDetailsProtocol?
     
-    var model = TodoDetailsModel()
+    private let viewModel = TodoDetailsViewModel()
     
+    // outlets
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
@@ -27,7 +29,7 @@ class TodoDetailsViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        model.delegate = self
+        viewModel.viewDelegate = self
     }
     
     func setupUI() {
@@ -55,16 +57,34 @@ class TodoDetailsViewController: UIViewController {
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         // TODO: update attribute
-        model.updateData(id: todoItem!.id)
-      
+        viewModel.didUpdateButtonPressed(by: todoItem!.id)
+        
+    }
+    
+    @IBAction func removeButtonPressed(_ sender: UIButton) {
+        viewModel.didRemoveButtonPressed(by: todoItem!.id)
     }
 }
 
-extension TodoDetailsViewController: TodoDetailsModelProtocol {
-    func didDataUpdateProcessFinish(_ isSuccess: Bool) {
+// MARK: - TodoDetailsViewModel Delegate Methods
+extension TodoDetailsViewController: TodoDetailsViewModelProtocol {
+    func didItemRemove(_ isSuccess: Bool) {
         if isSuccess {
             delegate!.didUpdatedTodo(true)
             dismiss(animated: true)
+        } else {
+            delegate!.didUpdatedTodo(false)
         }
     }
+    
+    func didItemUpdate(_ isSuccess: Bool) {
+        if isSuccess {
+            delegate!.didUpdatedTodo(true)
+            dismiss(animated: true)
+        } else {
+            delegate!.didUpdatedTodo(false)
+        }
+    }
+    
+    
 }

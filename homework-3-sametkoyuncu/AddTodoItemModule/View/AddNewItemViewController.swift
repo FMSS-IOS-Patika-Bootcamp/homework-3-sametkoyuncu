@@ -6,23 +6,28 @@
 //
 
 import UIKit
-
+// protocol for update 'TodoList screen' data
 protocol AddTodoItemProtocol {
     func didAddedTodoItem(_ isAdded: Bool)
 }
 
 class AddNewItemViewController: UIViewController {
-
+    var delegate: AddTodoItemProtocol?
+    private let viewModel = AddNewItemViewModel()
+    
+    // Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     
-    var delegate: AddTodoItemProtocol?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        viewModel.viewDelegate = self
     }
     
     func setupUI() {
@@ -40,24 +45,32 @@ class AddNewItemViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        print("save basıldı")
-        let managedContext = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
+        
+        if titleTextField.text!.isEmpty {
+            titleTextField.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.1)
+            titleTextField.placeholder = "Required field"
+            return
+        }
         
         guard let itemTitle = titleTextField.text else { return }
         guard let itemDetails = detailsTextView.text else { return }
         
-        let data = Item(context: managedContext)
-        data.setValue(UUID(), forKey: "id")
-        data.setValue(itemTitle, forKey: #keyPath(Item.title))
-        data.setValue(itemDetails, forKey: #keyPath(Item.body))
-        data.setValue(Date(), forKey: #keyPath(Item.date))
+        viewModel.didSaveButtonPressed(title: itemTitle, details: itemDetails)
         
-        AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
-        
-        // TODO: docatch gerek
-        delegate?.didAddedTodoItem(true)
-        
-        dismiss(animated: true)
     }
+    
+}
+
+// MARK: - AddNewItemViewModel Delegate Methods
+extension AddNewItemViewController: AddNewItemViewModelProtocol {
+    func didItemAdd(_ isSuccess: Bool) {
+        if isSuccess {
+            // anasayfadaki listeyi güncellemek için
+            delegate?.didAddedTodoItem(true)
+            
+            dismiss(animated: true)
+        }
+    }
+    
     
 }
