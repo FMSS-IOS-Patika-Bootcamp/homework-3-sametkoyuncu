@@ -13,8 +13,15 @@ class AddNewItemViewController: UIViewController {
     @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var saveButton: UIButton!
+    
+    var delegate: AddTodoItemProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI() {
         modalView.layer.cornerRadius = 20
         
         detailsTextView.layer.cornerRadius = 5
@@ -22,7 +29,6 @@ class AddNewItemViewController: UIViewController {
         detailsTextView.layer.borderColor = CGColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
         
         saveButton.layer.cornerRadius = saveButton.frame.height / 2
-        // Do any additional setup after loading the view.
     }
  
     @IBAction func closeScreen(_ sender: UIButton) {
@@ -37,15 +43,17 @@ class AddNewItemViewController: UIViewController {
         guard let itemDetails = detailsTextView.text else { return }
         
         let data = Item(context: managedContext)
+        data.setValue(UUID(), forKey: "id")
         data.setValue(itemTitle, forKey: #keyPath(Item.title))
         data.setValue(itemDetails, forKey: #keyPath(Item.body))
         data.setValue(Date(), forKey: #keyPath(Item.date))
         
         AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
         
+        // TODO: docatch gerek
+        delegate?.didAddedTodoItem(true)
+        
         dismiss(animated: true)
-        
-        
     }
     
 }

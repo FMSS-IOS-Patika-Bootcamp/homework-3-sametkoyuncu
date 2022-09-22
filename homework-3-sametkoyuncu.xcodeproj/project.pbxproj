@@ -20,6 +20,7 @@
 		F1690DB328DA4FC1003B0D5A /* TodoListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1690DB228DA4FC1003B0D5A /* TodoListEntity.swift */; };
 		F18F202628D9AA650003EC87 /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */; };
 		F18F202728D9AA650003EC87 /* HeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */; };
+		F1A0445828DC46AC000E2856 /* TodoListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0445728DC46AC000E2856 /* TodoListProtocols.swift */; };
 		F1A2FDFE28D8ECBB009A9EB6 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */; };
 		F1A2FDFF28D8ECBB009A9EB6 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */; };
 		F1A2FE0628D8FDB6009A9EB6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */; };
@@ -60,6 +61,7 @@
 		F1690DB228DA4FC1003B0D5A /* TodoListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListEntity.swift; sourceTree = "<group>"; };
 		F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		F1A0445728DC46AC000E2856 /* TodoListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListProtocols.swift; sourceTree = "<group>"; };
 		F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,22 @@
 			path = "homework-3-sametkoyuncu";
 			sourceTree = "<group>";
 		};
+		F1A0445628DC4690000E2856 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F1A0445728DC46AC000E2856 /* TodoListProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F1A0445928DC4A4F000E2856 /* AddNewTodo */ = {
+			isa = PBXGroup;
+			children = (
+				F1F1B83628DB2A6000A28B20 /* AddNewItemViewModel.swift */,
+			);
+			path = AddNewTodo;
+			sourceTree = "<group>";
+		};
 		F1A2FE0128D8FA57009A9EB6 /* GalleryModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				F1690DAE28DA3009003B0D5A /* AddNewItemViewController.swift */,
-				F1BABC0B28DC3612004FDE20 /* VM */,
 			);
 			path = AddNewTodo;
 			sourceTree = "<group>";
@@ -198,14 +215,6 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		F1BABC0B28DC3612004FDE20 /* VM */ = {
-			isa = PBXGroup;
-			children = (
-				F1F1B83628DB2A6000A28B20 /* AddNewItemViewModel.swift */,
-			);
-			path = VM;
-			sourceTree = "<group>";
-		};
 		F1BABC0D28DC363C004FDE20 /* TodoDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +226,7 @@
 		F1BABC0F28DC36F6004FDE20 /* TodoModule */ = {
 			isa = PBXGroup;
 			children = (
+				F1A0445628DC4690000E2856 /* Protocols */,
 				F1BABC1328DC37D3004FDE20 /* Models */,
 				F1BABC1428DC3809004FDE20 /* Views */,
 				F1BABC1528DC3939004FDE20 /* VMs */,
@@ -248,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F06BC628D9BA8600439D49 /* TodoList */,
+				F1A0445928DC4A4F000E2856 /* AddNewTodo */,
 			);
 			path = VMs;
 			sourceTree = "<group>";
@@ -439,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A0445828DC46AC000E2856 /* TodoListProtocols.swift in Sources */,
 				F1F1B83928DB2A9500A28B20 /* TodoListModel.swift in Sources */,
 				F160C73C28DB78E700E3BEEF /* TodoListViewModel.swift in Sources */,
 				F1A2FDFE28D8ECBB009A9EB6 /* HeaderTableViewCell.swift in Sources */,

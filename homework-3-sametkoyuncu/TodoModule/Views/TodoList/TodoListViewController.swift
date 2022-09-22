@@ -62,6 +62,9 @@ class TodoListViewController: UIViewController {
     
     @objc func addItemButtonPressed() {
         let destnationVC = storyboard?.instantiateViewController(withIdentifier: "AddNewItemScreen") as! AddNewItemViewController
+        
+        destnationVC.delegate = self
+        
         present(destnationVC, animated: true)
     }
     
@@ -131,4 +134,16 @@ extension TodoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
+}
+
+extension TodoListViewController: AddTodoItemProtocol {
+    func didAddedTodoItem(_ isAdded: Bool) {
+        
+        if isAdded {
+            getData()
+        }
+        
+    }
+    
+    
 }
