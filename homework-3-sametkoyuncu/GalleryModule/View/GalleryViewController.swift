@@ -29,7 +29,6 @@ class GalleryViewController: UIViewController {
         
         viewModel.viewDelegate = self
         viewModel.didViewLoad()
-      
     }
     
     func registerCells() {
