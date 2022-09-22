@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddTodoItemProtocol {
+    func didAddedTodoItem(_ isAdded: Bool)
+}
+
 class AddNewItemViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!

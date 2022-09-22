@@ -78,7 +78,7 @@ class TodoListViewController: UIViewController {
             let context = AppDelegate.sharedAppDelegate.coreDataStack.managedContext
             let results = try context.fetch(fetchRequest)
             todoList = results.map {
-                TodoItem(title: $0.title!, content: $0.body!, isDone: $0.isDone)
+                TodoItem(id: $0.id! ,title: $0.title!, content: $0.body!, isDone: $0.isDone)
             }
             tableView.reloadData()
         } catch {
@@ -88,6 +88,28 @@ class TodoListViewController: UIViewController {
 
 }
 
+// MARK: - AddTodoItem Methods
+extension TodoListViewController: AddTodoItemProtocol {
+    func didAddedTodoItem(_ isAdded: Bool) {
+        
+        if isAdded {
+            getData()
+        }
+        
+    }
+}
+
+// MARK: - TodoDetails Methods
+extension TodoListViewController: TodoDetailsProtocol {
+    func didUpdatedTodo(_ isUpdated: Bool) {
+        if isUpdated {
+            getData()
+        }
+    }
+    
+}
+
+// MARK: - ViewModel Methods
 extension TodoListViewController: TodoListViewModelProtocol {
     func didCellItemFetch(_ items: [TodoItem]) {
         todoList = items
@@ -97,18 +119,21 @@ extension TodoListViewController: TodoListViewModelProtocol {
     }
 }
 
-
+// MARK: - TableView Delegate Methods
 extension TodoListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "TodoDetailsScreen") as! TodoDetailsViewController
+        destinationVC.delegate = self
+        destinationVC.todoItem = todoList[indexPath.row]
         
         present(destinationVC, animated: true)
     }
 }
 
+// MARK: - TableView DataSource Methods
 extension TodoListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoList.count
@@ -136,14 +161,4 @@ extension TodoListViewController: UITableViewDataSource {
     }
 }
 
-extension TodoListViewController: AddTodoItemProtocol {
-    func didAddedTodoItem(_ isAdded: Bool) {
-        
-        if isAdded {
-            getData()
-        }
-        
-    }
-    
-    
-}
+

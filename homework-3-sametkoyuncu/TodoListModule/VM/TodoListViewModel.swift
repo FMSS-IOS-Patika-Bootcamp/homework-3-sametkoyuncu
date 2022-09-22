@@ -41,7 +41,7 @@ private extension TodoListViewModel {
     @discardableResult
     func makeViewBasedModel(_ todos: [Item]) -> [TodoItem] {
         return todos.map {
-            TodoItem(title: $0.title!, content: $0.body!, isDone: $0.isDone)
+            TodoItem(id: $0.id!, title: $0.title!, content: $0.body!, isDone: $0.isDone)
         }
     }
 }

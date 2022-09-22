@@ -6,21 +6,28 @@
 //
 
 import UIKit
+import SwiftUI
+
+protocol TodoDetailsProtocol {
+    func didUpdatedTodo(_ isUpdated: Bool)
+}
 
 class TodoDetailsViewController: UIViewController {
+    var todoItem: TodoItem?
+    var delegate: TodoDetailsProtocol?
     
-    let todoItem: TodoItem? = .init(title: "Markete git", content: "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.", isDone: false)
+    var model = TodoDetailsModel()
+    
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
-    
     @IBOutlet weak var modalView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
-       
-        // Do any additional setup after loading the view.
+        model.delegate = self
     }
     
     func setupUI() {
@@ -30,7 +37,7 @@ class TodoDetailsViewController: UIViewController {
         titleLabel.text = todoItem?.title
         contentLabel.text = todoItem?.content
         
-        if ((todoItem?.isDone) != nil) {
+        if todoItem!.isDone {
             makeUncheckedButton()
         }
     }
@@ -48,6 +55,16 @@ class TodoDetailsViewController: UIViewController {
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         // TODO: update attribute
-        dismiss(animated: true)
+        model.updateData(id: todoItem!.id)
+      
+    }
+}
+
+extension TodoDetailsViewController: TodoDetailsModelProtocol {
+    func didDataUpdateProcessFinish(_ isSuccess: Bool) {
+        if isSuccess {
+            delegate!.didUpdatedTodo(true)
+            dismiss(animated: true)
+        }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct TodoItem {
+    var id: UUID
     var title: String
     var content: String
     var isDone: Bool
