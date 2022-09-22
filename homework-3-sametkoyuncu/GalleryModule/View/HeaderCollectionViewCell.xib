@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,27 +19,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rI9-hW-jgp">
                         <rect key="frame" x="0.0" y="0.0" width="401" height="75"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puffin" translatesAutoresizingMaskIntoConstraints="NO" id="Y5O-ha-wMD">
-                                <rect key="frame" x="5" y="12.5" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="gPm-NJ-hZh"/>
-                                    <constraint firstAttribute="height" constant="50" id="s2B-2s-unX"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gallery" translatesAutoresizingMaskIntoConstraints="NO" id="Y5O-ha-wMD">
+                                <rect key="frame" x="20" y="0.0" width="243" height="75"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6y-Zg-smV">
-                                <rect key="frame" x="55" y="18" width="107" height="39"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                <color key="textColor" red="0.30980393290000002" green="0.29803922770000002" blue="0.28627452250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" name="themePink"/>
                         <constraints>
-                            <constraint firstItem="Y5O-ha-wMD" firstAttribute="leading" secondItem="rI9-hW-jgp" secondAttribute="leading" constant="5" id="DO9-Pp-561"/>
-                            <constraint firstItem="Z6y-Zg-smV" firstAttribute="leading" secondItem="Y5O-ha-wMD" secondAttribute="trailing" id="NTB-hq-u8e"/>
+                            <constraint firstItem="Y5O-ha-wMD" firstAttribute="leading" secondItem="rI9-hW-jgp" secondAttribute="leading" constant="20" id="DO9-Pp-561"/>
+                            <constraint firstAttribute="bottom" secondItem="Y5O-ha-wMD" secondAttribute="bottom" id="NpV-l0-uOr"/>
                             <constraint firstAttribute="height" constant="75" id="Qke-6X-hOy"/>
+                            <constraint firstItem="Y5O-ha-wMD" firstAttribute="top" secondItem="rI9-hW-jgp" secondAttribute="top" id="Vch-mi-U6t"/>
                             <constraint firstItem="Y5O-ha-wMD" firstAttribute="centerY" secondItem="rI9-hW-jgp" secondAttribute="centerY" id="WX2-Rf-95m"/>
-                            <constraint firstItem="Z6y-Zg-smV" firstAttribute="centerY" secondItem="rI9-hW-jgp" secondAttribute="centerY" id="o20-XV-xpf"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -57,9 +45,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="puffin" width="128" height="128"/>
-        <namedColor name="themePink">
-            <color red="1" green="0.63099998235702515" blue="0.67500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="gallery" width="243" height="68"/>
     </resources>
 </document>
