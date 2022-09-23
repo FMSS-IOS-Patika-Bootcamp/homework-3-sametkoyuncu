@@ -1,5 +1,23 @@
 # Homework-3 | Penguin App
+FMSS Bilişim & Patika iOS Bootcamp'inin üçüncü ödevi olarak yaptığım `Penguen` isimli uygulama.
 
+Uygulama üç farklı bölümden oluşuyor:
+1. bölüm, api'den gelen yazı verilerinin, başlık ve içerik olarak `UITableView` ile gösterildiği kısım.
+2. bölüm, api'den gelen görsellerin `UICollectionView` ile gösterildiği kısım.
+3. bölüm, CoreData ile todo list uygulaması.
+    - Kullanıcı listeye yeni eleman ekleyebiliyor.
+    - Listede var olan elemanı, `tamamlandı` veya `tamamlanmadı` şeklinde güncelleyebiliyor.
+    - İstediği elemanı silebiliyor.
+    
+## Kullanılanlar
+- Table View (Custom TableViewCell using .xib file)
+- Collection View (Custom CollectionViewCell using .xib file)
+- TabBar
+- Delegation Pattern
+- MVVM
+- CoreData
+- URLSession
+- KingFisher
 
 ## Ekran Görüntüleri
 - 'Posts' ekranı, api'den gelen veriler gösteriliyor.
