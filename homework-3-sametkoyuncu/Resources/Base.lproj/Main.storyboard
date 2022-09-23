@@ -127,10 +127,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yku-wq-Xfw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yku-wq-Xfw">
                                 <rect key="frame" x="107" y="338" width="200" height="220"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="penguin" translatesAutoresizingMaskIntoConstraints="NO" id="7Uz-dL-CTQ">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="penguin" translatesAutoresizingMaskIntoConstraints="NO" id="7Uz-dL-CTQ">
                                         <rect key="frame" x="50" y="120" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="3wo-iE-3lR"/>
@@ -348,17 +348,17 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-Kn-x1m">
-                                        <rect key="frame" x="75" y="254" width="194.5" height="50"/>
+                                        <rect key="frame" x="95.5" y="254" width="153" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEl-Re-Rbg">
-                                                <rect key="frame" x="0.0" y="0.0" width="142.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101" height="50"/>
                                                 <color key="backgroundColor" name="themeYellow"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="SYS-np-8KY"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.2470588088" green="0.55686277149999996" blue="0.30196079609999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="checked" title="Tamamlandı">
+                                                <buttonConfiguration key="configuration" style="plain" image="checked" title="Done  ">
                                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -366,7 +366,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhe-pw-Z4H">
-                                                <rect key="frame" x="150.5" y="0.0" width="44" height="50"/>
+                                                <rect key="frame" x="109" y="0.0" width="44" height="50"/>
                                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
@@ -446,7 +446,7 @@
         <image name="note-3" width="25" height="25"/>
         <image name="penguin" width="512" height="512"/>
         <image name="pink-bg" width="500" height="1000"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="32" height="32"/>
         <image name="yellow-bg" width="500" height="1000"/>
         <namedColor name="themeBlue">
             <color red="0.71799999475479126" green="0.98400002717971802" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

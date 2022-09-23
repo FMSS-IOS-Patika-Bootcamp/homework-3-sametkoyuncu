@@ -22,7 +22,6 @@ class AddNewItemViewModel {
     func didSaveButtonPressed(title: String, details: String) {
         model.addItem(title: title, details: details)
     }
-    
 }
 
 extension AddNewItemViewModel: AddNewItemModelProtocol {

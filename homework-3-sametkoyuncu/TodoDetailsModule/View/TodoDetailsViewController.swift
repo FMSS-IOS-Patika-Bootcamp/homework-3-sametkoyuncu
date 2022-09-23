@@ -47,7 +47,7 @@ class TodoDetailsViewController: UIViewController {
     
     func makeUncheckedButton() {
         doneButton.setImage(UIImage(named: "unchecked"), for: .normal)
-        doneButton.setTitle("Tamamlanmadı", for: .normal)
+        doneButton.setTitle("Undone  ", for: .normal)
         doneButton.tintColor = .black
         doneButton.backgroundColor = UIColor(named: "themePink")
     }

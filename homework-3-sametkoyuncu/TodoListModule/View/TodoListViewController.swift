@@ -87,6 +87,7 @@ class TodoListViewController: UIViewController {
     private func showAlert(message: String) {
         alertLabelText.text = message
         alertView.isHidden = false
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.alertView.isHidden = true
         }
