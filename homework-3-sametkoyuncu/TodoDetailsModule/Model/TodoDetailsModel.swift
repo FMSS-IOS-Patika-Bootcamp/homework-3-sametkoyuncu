@@ -31,12 +31,11 @@ class TodoDetailsModel {
                 result.setValue(!isDone, forKey: #keyPath(Item.isDone))
                 
                 AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
+                
                 delegate?.didDataUpdateProcessFinish(true)
             } else {
                 delegate?.didDataUpdateProcessFinish(false)
             }
-            
-          
         } catch {
             delegate?.didDataUpdateProcessFinish(false)
             print(error.localizedDescription)
@@ -56,22 +55,14 @@ class TodoDetailsModel {
             if let result = result {
                 context.delete(result)
                 AppDelegate.sharedAppDelegate.coreDataStack.saveContext()
-                // daha burası kullanılmıyor - view model yok :)
+                
                 delegate?.didDataRemoveProcessFinish(true)
             } else {
                 delegate?.didDataRemoveProcessFinish(true)
             }
-            
-            
-           
         } catch {
             delegate?.didDataUpdateProcessFinish(false)
             print(error.localizedDescription)
         }
     }
-    
-    
-    
-    
-    
 }

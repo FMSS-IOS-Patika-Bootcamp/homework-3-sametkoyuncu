@@ -28,14 +28,23 @@ class TodoListViewController: UIViewController {
         registerCells()
         setupUI()
         
-        alertView.layer.cornerRadius = 20
-        
         // view model setup
         viewModel.viewDelegate  = self
         
         getData()
     }
+   
     
+    @IBAction func alertCloseButtonPressed(_ sender: UIButton) {
+        alertView.layer.isHidden = true
+    }
+    
+
+}
+
+// MARK: - TodoListViewController Methods
+extension TodoListViewController {
+    // viewDidLoad içi
     func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,12 +53,11 @@ class TodoListViewController: UIViewController {
         alertView.isHidden = true
         alertView.alpha = 1.0
         
+        alertView.layer.cornerRadius = 20
+        
         makeNewItemButton()
     }
     
-    @IBAction func alertCloseButtonPressed(_ sender: UIButton) {
-        alertView.layer.isHidden = true
-    }
     func registerCells() {
         tableView.register(.init(nibName: "TodoListTableViewCell", bundle: nil), forCellReuseIdentifier: todoListCellReuseIdentifier)
         tableView.register(.init(nibName: "HeaderTodoListTableViewCell", bundle: nil), forCellReuseIdentifier: headerCellReuseIdentifier)
@@ -83,7 +91,7 @@ class TodoListViewController: UIViewController {
         viewModel.getData()
     }
     
-    //
+    // custom alert view
     private func showAlert(message: String) {
         alertLabelText.text = message
         alertView.isHidden = false
@@ -92,10 +100,9 @@ class TodoListViewController: UIViewController {
             self.alertView.isHidden = true
         }
     }
-
 }
 
-// MARK: - ViewModel Methods
+// MARK: - ViewModel Methods - Veri geldiyse çalışacak
 extension TodoListViewController: TodoListViewModelProtocol {
     func didCellItemFetch(_ items: [TodoItem]) {
         todoList = items
@@ -104,6 +111,12 @@ extension TodoListViewController: TodoListViewModelProtocol {
         }
     }
 }
+
+// MARK: - Item ekleme ve details sayfası açıldığında, sadece işlem gerçekleştiyse
+//         CoreData'dan veri çekilmesi için, Ekleme ve Detay sayfalarına
+//         Protocol ekledim. Aşağıdaki 2 extension o işlemler için kullanılıyor.
+//         Değişiklik varsa yeni veriyi çekiyor ve kullanıcıya bildirim gösteriyor.
+//
 
 // MARK: - AddTodoItem Methods
 extension TodoListViewController: AddTodoItemProtocol {
@@ -139,7 +152,7 @@ extension TodoListViewController: TodoDetailsProtocol {
     }
 }
 
-// MARK: - TableView Delegate Methods
+// MARK: - TableView Delegate Methods - datay sayfasını tıklanan item'ı gönder
 extension TodoListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -176,7 +189,7 @@ extension TodoListViewController: UITableViewDataSource {
         
         return cell
     }
-    
+    // tableView arkasında görsel göstermek için, arkaplanı temizliyorum
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }

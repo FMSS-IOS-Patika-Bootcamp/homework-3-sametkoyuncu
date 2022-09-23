@@ -24,8 +24,6 @@ class PostListViewController: UIViewController {
         setupUI()
         registerCell()
         
-        
-        
         viewModel.viewDelegate  = self
         viewModel.didViewLoad()
     }
@@ -37,9 +35,6 @@ private extension PostListViewController {
         tableView.dataSource = self
         
         tableView.separatorStyle = .none
-        
-       // tableView.backgroundView = UIImageView(image: UIImage(named: "blue-bg"))
-
     }
     
     func registerCell() {
@@ -91,8 +86,6 @@ extension PostListViewController: UITableViewDataSource {
         
         cell.titleLabel.text = items[indexPath.row - 1].title
         cell.descLabel.text = items[indexPath.row - 1].desc
-        
-        
         
         return cell
     }

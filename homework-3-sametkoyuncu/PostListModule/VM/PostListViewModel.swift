@@ -27,7 +27,7 @@ class PostListViewModel {
         model.fetchData()
     }
     
-    //
+    // derste yazdık, ama kullanmadık
     func didClickItem(at index: Int) {
         let selectedItem = model.posts[index]
         // TODO: navigate

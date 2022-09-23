@@ -24,12 +24,6 @@ class GalleryViewModel {
     func didViewLoad() {
         model.fetchData()
     }
-    
-    //
-    func didClickItem(at index: Int) {
-        let selectedItem = model.photos[index]
-        // TODO: navigate
-    }
 }
 
 private extension GalleryViewModel {

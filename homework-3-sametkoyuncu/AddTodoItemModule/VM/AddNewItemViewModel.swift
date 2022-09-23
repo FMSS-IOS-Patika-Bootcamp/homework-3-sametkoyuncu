@@ -18,12 +18,13 @@ class AddNewItemViewModel {
     init() {
         model.delegate = self
     }
-    
+    // yeni item ekleme
     func didSaveButtonPressed(title: String, details: String) {
         model.addItem(title: title, details: details)
     }
 }
 
+// işlem sonu, ana ekranı haberdar etmek için
 extension AddNewItemViewModel: AddNewItemModelProtocol {
     func didDataAddProcessFinish(_ isSuccess: Bool) {
         viewDelegate?.didItemAdd(true)

@@ -6,11 +6,10 @@
 //
 
 import UIKit
-
+// Toast Message Extension - error'lar için kullanıldı
 extension UIViewController {
     
     func showToast(message : String, font: UIFont) {
-        //self.view.frame.size.height-100
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: 80, width: 150, height: 40))
         toastLabel.backgroundColor = UIColor(named: "themeBlue")!
         toastLabel.textColor = UIColor.darkGray

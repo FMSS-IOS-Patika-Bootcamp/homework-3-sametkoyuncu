@@ -48,11 +48,10 @@ extension GalleryViewController: GalleryViewModelViewProtocol {
     }
 }
 
-// MARK: - CollectionView Delegate
+// MARK: - CollectionView Delegate - Kullanmıyoruz
 extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO:
-        
     }
 }
 
@@ -63,6 +62,7 @@ extension GalleryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // show header cell
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: headerCellReuseIdentifier, for: indexPath) as! HeaderCollectionViewCell
             
@@ -84,7 +84,7 @@ extension GalleryViewController: UICollectionViewDataSource {
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+        // header cell
         if indexPath.row == 0 {
             let width = collectionView.frame.width - 20
             let height = 75.0
@@ -92,14 +92,14 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: height)
         }
 
-        // burası normal boyuttaki cell'ler için
+        // for large screens, 4 column
         if collectionView.frame.width > 340 {
             let width = (collectionView.frame.width - 40) / 4
             let height = width
             
             return CGSize(width: width, height: height)
         }
-        
+        // for small screens, 3 column
         let width = (collectionView.frame.width - 35) / 3
         let height = width
         

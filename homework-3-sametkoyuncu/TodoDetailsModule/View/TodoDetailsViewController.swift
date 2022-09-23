@@ -39,7 +39,7 @@ class TodoDetailsViewController: UIViewController {
         
         titleLabel.text = todoItem?.title
         contentLabel.text = todoItem?.content
-        
+        // isDone değerine göre farklı buton gösteriliyor
         if todoItem!.isDone {
             makeUncheckedButton()
         }
@@ -57,7 +57,6 @@ class TodoDetailsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        // TODO: update attribute
         viewModel.didUpdateButtonPressed(by: todoItem!.id)
         
     }
@@ -68,6 +67,7 @@ class TodoDetailsViewController: UIViewController {
 }
 
 // MARK: - TodoDetailsViewModel Delegate Methods
+//         Güncelleme olursa, ana ekran haberdar ediliyor, ona göre veri çekiliyor
 extension TodoDetailsViewController: TodoDetailsViewModelProtocol {
     func didItemRemove(_ isSuccess: Bool) {
         if isSuccess {
