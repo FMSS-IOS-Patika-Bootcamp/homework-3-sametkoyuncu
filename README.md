@@ -1,4 +1,4 @@
-# Homework-3 | Penguin App
+# Ödev 3 | Penguin App
 FMSS Bilişim & Patika iOS Bootcamp'inin üçüncü ödevi olarak yaptığım `Penguen` isimli uygulama.
 
 Uygulama üç farklı bölümden oluşuyor:
