@@ -10,6 +10,7 @@ import SwiftUI
 
 protocol TodoDetailsProtocol {
     func didUpdatedTodo(_ isUpdated: Bool)
+    func didRemovedTodo(_ isRemoved: Bool)
 }
 
 class TodoDetailsViewController: UIViewController {
@@ -70,10 +71,10 @@ class TodoDetailsViewController: UIViewController {
 extension TodoDetailsViewController: TodoDetailsViewModelProtocol {
     func didItemRemove(_ isSuccess: Bool) {
         if isSuccess {
-            delegate!.didUpdatedTodo(true)
+            delegate!.didRemovedTodo(true)
             dismiss(animated: true)
         } else {
-            delegate!.didUpdatedTodo(false)
+            delegate!.didRemovedTodo(false)
         }
     }
     

@@ -12,17 +12,23 @@ class TodoListViewController: UIViewController {
     private var todoList: [TodoItem] = []
     private let viewModel = TodoListViewModel()
     
+    
     // cell identifiers
     private let todoListCellReuseIdentifier = "TodoListTableViewCell"
     private let headerCellReuseIdentifier = "HeaderTodoListTableViewCell"
     
     // outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var alertView: UIView!
+    @IBOutlet weak var alertCloseButton: UITableView!
+    @IBOutlet weak var alertLabelText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
         setupUI()
+        
+        alertView.layer.cornerRadius = 20
         
         // view model setup
         viewModel.viewDelegate  = self
@@ -35,10 +41,15 @@ class TodoListViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
+        alertView.isHidden = true
+        alertView.alpha = 1.0
+        
         makeNewItemButton()
     }
     
-    
+    @IBAction func alertCloseButtonPressed(_ sender: UIButton) {
+        alertView.layer.isHidden = true
+    }
     func registerCells() {
         tableView.register(.init(nibName: "TodoListTableViewCell", bundle: nil), forCellReuseIdentifier: todoListCellReuseIdentifier)
         tableView.register(.init(nibName: "HeaderTodoListTableViewCell", bundle: nil), forCellReuseIdentifier: headerCellReuseIdentifier)
@@ -71,6 +82,15 @@ class TodoListViewController: UIViewController {
     private func getData() {
         viewModel.getData()
     }
+    
+    //
+    private func showAlert(message: String) {
+        alertLabelText.text = message
+        alertView.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.alertView.isHidden = true
+        }
+    }
 
 }
 
@@ -89,15 +109,31 @@ extension TodoListViewController: AddTodoItemProtocol {
     func didAddedTodoItem(_ isAdded: Bool) {
         if isAdded {
             getData()
+            showAlert(message: "Item, Successfully Added!")
+            
+        } else {
+            self.showToast(message: "Unsuccessful ❌", font: .systemFont(ofSize: 14.0, weight: .bold))
         }
     }
 }
 
 // MARK: - TodoDetails Methods
 extension TodoListViewController: TodoDetailsProtocol {
+    func didRemovedTodo(_ isRemoved: Bool) {
+        if isRemoved {
+            getData()
+            showAlert(message: "Item, Successfully Removed!")
+        } else {
+            self.showToast(message: "Unsuccessful ❌", font: .systemFont(ofSize: 14.0, weight: .bold))
+        }
+    }
+    
     func didUpdatedTodo(_ isUpdated: Bool) {
         if isUpdated {
             getData()
+            showAlert(message: "Item, Successfully Updated!")
+        } else {
+            self.showToast(message: "Unsuccessful ❌", font: .systemFont(ofSize: 14.0, weight: .bold))
         }
     }
 }
