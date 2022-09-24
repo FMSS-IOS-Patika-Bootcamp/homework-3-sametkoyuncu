@@ -9,9 +9,7 @@ import UIKit
 import CoreData
 
 class TodoListViewController: UIViewController {
-    private var todoList: [TodoItem] = []
     private let viewModel = TodoListViewModel()
-    
     
     // cell identifiers
     private let todoListCellReuseIdentifier = "TodoListTableViewCell"
@@ -33,12 +31,10 @@ class TodoListViewController: UIViewController {
         
         getData()
     }
-   
     
     @IBAction func alertCloseButtonPressed(_ sender: UIButton) {
         alertView.layer.isHidden = true
     }
-    
 
 }
 
@@ -104,15 +100,60 @@ extension TodoListViewController {
 
 // MARK: - ViewModel Methods - Veri geldiyse çalışacak
 extension TodoListViewController: TodoListViewModelProtocol {
-    func didCellItemFetch(_ items: [TodoItem]) {
-        todoList = items
+    func didCellItemFetch(isSuccess: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
     }
 }
 
-// MARK: - Item ekleme ve details sayfası açıldığında, sadece işlem gerçekleştiyse
+// MARK: - TableView Delegate Methods - datay sayfasını tıklanan item'ı gönder
+extension TodoListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "TodoDetailsScreen") as! TodoDetailsViewController
+        destinationVC.delegate = self
+        destinationVC.todoItem = viewModel.getModel(at: indexPath.row - 1)
+        
+        present(destinationVC, animated: true)
+    }
+}
+
+// MARK: - TableView DataSource Methods
+extension TodoListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // todolist.count + header cell
+        return viewModel.numberOfItems() + 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // custom header cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: headerCellReuseIdentifier) as! HeaderTodoListTableViewCell
+            
+            return cell
+        }
+        
+        let cellModel = viewModel.getModel(at: indexPath.row - 1)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: todoListCellReuseIdentifier) as! TodoListTableViewCell
+        
+        cell.titleLabel.text = cellModel.title
+        
+        cell.checkMarkImage.image = UIImage(named: cellModel.isDone ? "checked-1" : "unchecked-1")
+        
+        return cell
+    }
+    // tableView arkasında görsel göstermek için, arkaplanı temizliyorum
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+}
+
+
+// MARK: - Item ekleme ve details sayfası açıldığında, sadece işlem gerçekleştiğinde
 //         CoreData'dan veri çekilmesi için, Ekleme ve Detay sayfalarına
 //         Protocol ekledim. Aşağıdaki 2 extension o işlemler için kullanılıyor.
 //         Değişiklik varsa yeni veriyi çekiyor ve kullanıcıya bildirim gösteriyor.
@@ -149,49 +190,6 @@ extension TodoListViewController: TodoDetailsProtocol {
         } else {
             self.showToast(message: "Unsuccessful ❌", font: .systemFont(ofSize: 14.0, weight: .bold))
         }
-    }
-}
-
-// MARK: - TableView Delegate Methods - datay sayfasını tıklanan item'ı gönder
-extension TodoListViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "TodoDetailsScreen") as! TodoDetailsViewController
-        destinationVC.delegate = self
-        destinationVC.todoItem = todoList[indexPath.row - 1]
-        
-        present(destinationVC, animated: true)
-    }
-}
-
-// MARK: - TableView DataSource Methods
-extension TodoListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // todolist.count + header cell
-        return todoList.count + 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // custom header cell
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: headerCellReuseIdentifier) as! HeaderTodoListTableViewCell
-            
-            return cell
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: todoListCellReuseIdentifier) as! TodoListTableViewCell
-        
-        cell.titleLabel.text = todoList[indexPath.row - 1].title
-        
-        cell.checkMarkImage.image = UIImage(named: todoList[indexPath.row - 1].isDone ? "checked-1" : "unchecked-1")
-        
-        return cell
-    }
-    // tableView arkasında görsel göstermek için, arkaplanı temizliyorum
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
     }
 }
 

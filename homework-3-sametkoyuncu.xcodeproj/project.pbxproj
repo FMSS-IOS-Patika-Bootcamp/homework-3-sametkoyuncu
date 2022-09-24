@@ -123,6 +123,39 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F12E7BFB28DEF61E002E142B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F1F0AD8F28D8939C004731AB /* PostListTableViewCell.swift */,
+				F1F0AD9028D8939C004731AB /* PostListTableViewCell.xib */,
+				F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */,
+				F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F12E7BFC28DEF7F2002E142B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F1A2FE0D28D904FE009A9EB6 /* GalleryCollectionViewCell.swift */,
+				F1A2FE0E28D904FE009A9EB6 /* GalleryCollectionViewCell.xib */,
+				F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */,
+				F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F12E7BFE28DEFCBA002E142B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F1C237CB28D9DA4A008F8E68 /* TodoListTableViewCell.swift */,
+				F1C237CC28D9DA4A008F8E68 /* TodoListTableViewCell.xib */,
+				F1A0446028DC682C000E2856 /* HeaderTodoListTableViewCell.swift */,
+				F1A0446128DC682C000E2856 /* HeaderTodoListTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F14A279F28D86550001DA9A2 = {
 			isa = PBXGroup;
 			children = (
@@ -234,10 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A2FE0528D8FDB6009A9EB6 /* GalleryViewController.swift */,
-				F1A2FE0D28D904FE009A9EB6 /* GalleryCollectionViewCell.swift */,
-				F1A2FE0E28D904FE009A9EB6 /* GalleryCollectionViewCell.xib */,
-				F18F202428D9AA650003EC87 /* HeaderCollectionViewCell.swift */,
-				F18F202528D9AA650003EC87 /* HeaderCollectionViewCell.xib */,
+				F12E7BFC28DEF7F2002E142B /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,10 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C237C928D9D9D2008F8E68 /* TodoListViewController.swift */,
-				F1C237CB28D9DA4A008F8E68 /* TodoListTableViewCell.swift */,
-				F1C237CC28D9DA4A008F8E68 /* TodoListTableViewCell.xib */,
-				F1A0446028DC682C000E2856 /* HeaderTodoListTableViewCell.swift */,
-				F1A0446128DC682C000E2856 /* HeaderTodoListTableViewCell.xib */,
+				F12E7BFE28DEFCBA002E142B /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,10 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				F14A27AF28D86550001DA9A2 /* PostListViewController.swift */,
-				F1F0AD8F28D8939C004731AB /* PostListTableViewCell.swift */,
-				F1F0AD9028D8939C004731AB /* PostListTableViewCell.xib */,
-				F1A2FDFC28D8ECBB009A9EB6 /* HeaderTableViewCell.swift */,
-				F1A2FDFD28D8ECBB009A9EB6 /* HeaderTableViewCell.xib */,
+				F12E7BFB28DEF61E002E142B /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";

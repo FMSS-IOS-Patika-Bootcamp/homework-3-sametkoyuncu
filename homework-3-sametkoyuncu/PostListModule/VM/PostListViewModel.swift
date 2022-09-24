@@ -8,7 +8,8 @@
 import Foundation
 
 protocol PostListViewModelViewProtocol: AnyObject {
-    func didCellItemFetch(_ items: [PostCellViewModel])
+    func didCellItemFetch(isSuccess: Bool)
+    // TODO:
     func showEmptyView()
     func hideEmptyView()
 }
@@ -27,18 +28,25 @@ class PostListViewModel {
         model.fetchData()
     }
     
+    func NumberOfItems() -> Int {
+        return model.posts.count
+    }
+    
+    func getModel(at index: Int) -> PostCellViewModel {
+        let post = model.posts[index]
+        
+        return transformPostToPostListModel(from: post)
+    }
+    
+    private func transformPostToPostListModel(from post: Post) -> PostCellViewModel {
+        return PostCellViewModel(post.title, post.body)
+    }
+    
     // derste yazdık, ama kullanmadık
     func didClickItem(at index: Int) {
-        let selectedItem = model.posts[index]
+        let _ = model.posts[index]
+        print("selected index: \(index)")
         // TODO: navigate
-    }
-}
-
-private extension PostListViewModel {
-    
-    @discardableResult
-    func makeViewBasedModel(_ posts: [Post]) -> [PostCellViewModel] {
-        return posts.map { .init($0.title, $0.body) }
     }
 }
 
@@ -46,14 +54,11 @@ private extension PostListViewModel {
 extension PostListViewModel: PostListModelProtocol {
     func didDataFetchProcessFinish(_ isSuccess: Bool) {
         if isSuccess {
-            let posts = model.posts
-            let cellModels = makeViewBasedModel(posts)
-            
             viewDelegate?.hideEmptyView()
-            viewDelegate?.didCellItemFetch(cellModels)
+            viewDelegate?.didCellItemFetch(isSuccess: true)
         } else {
+            // TODO:
             viewDelegate?.showEmptyView()
         }
-        
     }
 }

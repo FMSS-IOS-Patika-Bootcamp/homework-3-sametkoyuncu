@@ -40,7 +40,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-bg" translatesAutoresizingMaskIntoConstraints="NO" id="YMt-RX-vQf">
                                 <rect key="frame" x="0.0" y="0.0" width="534" height="896"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="always" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-2G-DB2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="always" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="d8G-2G-DB2">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -144,7 +144,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vp1-4R-mIC">
-                                        <rect key="frame" x="168" y="-18" width="56" height="46"/>
+                                        <rect key="frame" x="149" y="0.0" width="56" height="46"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="cancel"/>
                                         <connections>
@@ -159,12 +159,12 @@
                                     <constraint firstAttribute="bottom" secondItem="7Uz-dL-CTQ" secondAttribute="bottom" id="H9n-qs-VUQ"/>
                                     <constraint firstAttribute="width" constant="200" id="KZm-dw-fzV"/>
                                     <constraint firstAttribute="trailing" secondItem="JXY-3l-QQ6" secondAttribute="trailing" constant="20" id="NXX-Xh-Bkm"/>
-                                    <constraint firstAttribute="trailing" secondItem="vp1-4R-mIC" secondAttribute="trailing" constant="-24" id="PkN-el-dwr"/>
+                                    <constraint firstAttribute="trailing" secondItem="vp1-4R-mIC" secondAttribute="trailing" constant="-5" id="PkN-el-dwr"/>
                                     <constraint firstItem="JXY-3l-QQ6" firstAttribute="top" secondItem="yku-wq-Xfw" secondAttribute="top" constant="20" id="Qtl-tM-v1H"/>
                                     <constraint firstAttribute="bottom" secondItem="7Uz-dL-CTQ" secondAttribute="bottom" id="SbW-XC-N5d"/>
                                     <constraint firstAttribute="height" constant="220" id="bbd-ge-8qc"/>
                                     <constraint firstItem="7Uz-dL-CTQ" firstAttribute="centerX" secondItem="yku-wq-Xfw" secondAttribute="centerX" id="cpI-Dm-cUD"/>
-                                    <constraint firstItem="vp1-4R-mIC" firstAttribute="top" secondItem="yku-wq-Xfw" secondAttribute="top" constant="-18" id="oVD-U0-YlI"/>
+                                    <constraint firstItem="vp1-4R-mIC" firstAttribute="top" secondItem="yku-wq-Xfw" secondAttribute="top" id="oVD-U0-YlI"/>
                                 </constraints>
                             </view>
                         </subviews>

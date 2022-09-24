@@ -48,7 +48,7 @@ class GalleryModel {
             // decode data
             do {
                 let responseModel = try JSONDecoder().decode([Photo].self, from: data!)
-                self.photos = responseModel
+                self.photos = responseModel.filter { $0.id <= 100 }
                 self.delegate?.didDataFetchProcessFinish(true)
                 
             } catch {

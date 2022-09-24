@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GalleryViewModelViewProtocol: AnyObject {
-    func didCellItemFetch(_ items: [GalleryCellViewModel])
+    func didCellItemFetch(isSuccess: Bool)
 }
 
 class GalleryViewModel {
@@ -24,13 +24,19 @@ class GalleryViewModel {
     func didViewLoad() {
         model.fetchData()
     }
-}
-
-private extension GalleryViewModel {
     
-    @discardableResult
-    func makeViewBasedModel(_ photos: [Photo]) -> [GalleryCellViewModel] {
-        photos.map { .init($0.url, $0.thumbnailUrl) }
+    func numberOfItems() -> Int {
+        return model.photos.count
+    }
+    
+    func getModel(at index: Int) -> GalleryCellViewModel {
+        let photo = model.photos[index]
+        
+        return transformPhotoToGalleryCellViewModel(from: photo)
+    }
+    
+    private func transformPhotoToGalleryCellViewModel(from photo: Photo) -> GalleryCellViewModel {
+        return GalleryCellViewModel(photo.url, photo.thumbnailUrl)
     }
 }
 
@@ -38,12 +44,7 @@ private extension GalleryViewModel {
 extension GalleryViewModel: GalleryModelProtocol {
     func didDataFetchProcessFinish(_ isSuccess: Bool) {
         if isSuccess {
-            let photos = model.photos
-            let filteredArray = photos.filter { $0.id <= 100 }
-            
-            let cellModels = makeViewBasedModel(filteredArray)
-            
-            viewDelegate?.didCellItemFetch(cellModels)
+            viewDelegate?.didCellItemFetch(isSuccess: true)
         } else {
             // TODO:
             print("didDataFetchProcessFinish, false geldi.")

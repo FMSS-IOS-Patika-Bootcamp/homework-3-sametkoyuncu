@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
+// burası uçacak gibi
 protocol TodoListViewModelProtocol: AnyObject {
-    func didCellItemFetch(_ items: [TodoItem])
+    func didCellItemFetch(isSuccess: Bool)
 }
 
 class TodoListViewModel {
@@ -24,14 +24,19 @@ class TodoListViewModel {
     func getData() {
         model.fetchData()
     }
-}
-// Transform data Item to TodoItem
-private extension TodoListViewModel {
-    @discardableResult
-    func makeViewBasedModel(_ todos: [Item]) -> [TodoItem] {
-        return todos.map {
-            TodoItem(id: $0.id!, title: $0.title!, content: $0.body!, isDone: $0.isDone)
-        }
+    
+    func numberOfItems() -> Int {
+        return model.todoList.count
+    }
+
+    func getModel(at index: Int) -> TodoItem {
+        let item =  model.todoList[index]
+        
+        return transformItemToTodoItem(from: item)
+    }
+    
+    private func transformItemToTodoItem(from item: Item) -> TodoItem {
+        return TodoItem(id: item.id!, title: item.title!, content: item.body!, isDone: item.isDone)
     }
 }
 
@@ -39,11 +44,7 @@ private extension TodoListViewModel {
 extension TodoListViewModel: TodoListModelProtocol {
     func didDataFetchProcessFinish(_ isSuccess: Bool) {
         if isSuccess {
-            let todoList = model.todoList
-            let cellModels = makeViewBasedModel(todoList)
-            
-            
-            viewDelegate?.didCellItemFetch(cellModels)
+            viewDelegate?.didCellItemFetch(isSuccess: true)
         } else {
             print("error")
         }

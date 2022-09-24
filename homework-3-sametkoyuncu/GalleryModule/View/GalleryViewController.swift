@@ -14,8 +14,6 @@ class GalleryViewController: UIViewController {
     private let headerCellReuseIdentifier = "headerCollectionViewCell"
     
     private let viewModel = GalleryViewModel()
-    
-    private var items: [GalleryCellViewModel] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -40,25 +38,17 @@ class GalleryViewController: UIViewController {
 
 // MARK: - GalleryModel Delegate Methods
 extension GalleryViewController: GalleryViewModelViewProtocol {
-    func didCellItemFetch(_ items: [GalleryCellViewModel]) {
-        self.items = items
+    func didCellItemFetch(isSuccess: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
         }
     }
 }
 
-// MARK: - CollectionView Delegate - Kullanmıyoruz
-extension GalleryViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO:
-    }
-}
-
 // MARK: - CollectionView DataSource
 extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count + 1
+        return viewModel.numberOfItems() + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -68,10 +58,11 @@ extension GalleryViewController: UICollectionViewDataSource {
             
             return cell
         }
-        
+        // show image cell
+        let cellModel = viewModel.getModel(at: indexPath.row - 1)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: galleryCellReuseIdentifier, for: indexPath) as! GalleryCollectionViewCell
-        let url = URL(string: items[indexPath.row - 1].url!)
+        let url = URL(string: cellModel.url!)
         cell.cellImage.kf.setImage(with: url)
         
         return cell
@@ -80,7 +71,6 @@ extension GalleryViewController: UICollectionViewDataSource {
 }
 
 // set cell width using device sizes
-
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -107,4 +97,9 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
         
     }
 }
+
+// MARK: - CollectionView Delegate - Kullanmıyoruz
+extension GalleryViewController: UICollectionViewDelegate {
+}
+
 

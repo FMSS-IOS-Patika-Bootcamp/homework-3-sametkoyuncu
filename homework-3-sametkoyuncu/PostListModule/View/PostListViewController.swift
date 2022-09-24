@@ -11,10 +11,6 @@ class PostListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let viewModel = PostListViewModel()
-    // daha sonra bunun için bir helper class olsa daha iyi olur
-    // çünkü amaç view'ın hiç data tutmaması
-    // ama burada mecburen (tabloda göstermek için) tutuyoruz (şimdilik)
-    private var items: [PostCellViewModel] = []
     
     private let cellReuseIdentifier = "postListTableViewCell"
     private let headerReuseIdentifier = "headerTableViewCell"
@@ -44,12 +40,51 @@ private extension PostListViewController {
     }
 }
 
+// MARK: - TableView Delegate Methods
+extension PostListViewController:  UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO:
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.didClickItem(at: indexPath.row - 1)
+    }
+}
+
+// MARK: - TableView DataSource  Methods
+extension PostListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.NumberOfItems() + 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // show header cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: headerReuseIdentifier) as! HeaderTableViewCell
+            return cell
+        }
+        // show post cell
+        let cellModel = viewModel.getModel(at: indexPath.row - 1)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PostListTableViewCell
+        
+        cell.titleLabel.text = cellModel.title
+        cell.descLabel.text = cellModel.desc
+        
+        return cell
+    }
+    // arkaplan görselinin gözükmesi için, arkaplanı temizle
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+}
+
+
 // MARK: - PostListModel Delegate Methods
 extension PostListViewController: PostListViewModelViewProtocol {
-    func didCellItemFetch(_ items: [PostCellViewModel]) {
-        self.items = items
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
+    func didCellItemFetch(isSuccess: Bool) {
+        if isSuccess {
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -59,39 +94,6 @@ extension PostListViewController: PostListViewModelViewProtocol {
     
     func hideEmptyView() {
         // TODO:
-    }
-}
-
-// MARK: - TableView Delegate Methods
-extension PostListViewController:  UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didClickItem(at: indexPath.row)
-    }
-}
-
-// MARK: - TableView DataSource  Methods
-extension PostListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count + 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // show header
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: headerReuseIdentifier) as! HeaderTableViewCell
-            return cell
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PostListTableViewCell
-        
-        cell.titleLabel.text = items[indexPath.row - 1].title
-        cell.descLabel.text = items[indexPath.row - 1].desc
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
     }
 }
 
