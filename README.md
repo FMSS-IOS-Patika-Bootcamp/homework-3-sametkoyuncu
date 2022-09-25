@@ -1,4 +1,7 @@
 # Ödev 3 | Penguin App
+
+> [Simülatör açılmıyorsa lütfen bu dosyaya bakınız. 👆](https://github.com/FMSS-IOS-Patika-Bootcamp/homework-3-sametkoyuncu/blob/main/SchemeFixer.md)
+
 FMSS Bilişim & Patika iOS Bootcamp'inin üçüncü ödevi olarak yaptığım `Penguen` isimli uygulama.
 
 Uygulama üç farklı bölümden oluşuyor:
