@@ -113,6 +113,10 @@ extension TodoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
+        if indexPath.row == 0 {
+            return
+        }
+        
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "TodoDetailsScreen") as! TodoDetailsViewController
         destinationVC.delegate = self
         destinationVC.todoItem = viewModel.getModel(at: indexPath.row - 1)
